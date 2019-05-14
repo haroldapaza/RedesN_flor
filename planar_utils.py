@@ -34,6 +34,11 @@ def sigmoid(x):
     s = 1/(1+np.exp(-x))
     return s
 
+def relu(x):
+    x[x<=0] = 0
+    x[x>0] = 1
+    return x
+
 def load_planar_dataset():
     np.random.seed(1)
     m = 400 # number of examples
@@ -64,3 +69,5 @@ def load_extra_datasets():
     no_structure = np.random.rand(N, 2), np.random.rand(N, 2)
     
     return noisy_circles, noisy_moons, blobs, gaussian_quantiles, no_structure
+
+
